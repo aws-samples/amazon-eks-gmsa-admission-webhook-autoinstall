@@ -70,7 +70,7 @@ This script requires, at least, the following actions:
 ```
 The recommended approach is to run this script from an EC2 instance and configure this [instance's profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) to use the above mentioned policy.
 
-You'd also need to add this instance profile to the EKS [aws-auth](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html) configmap so that the script could run 'kubectl' commands. To perform this mapping, the following command could be used:
+You'd also need to add this instance profile to the EKS [aws-auth](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html) ConfigMap so that the script could run 'kubectl' commands. To perform this mapping, the following command could be used:
 
 ```shell
 $  eksctl create iamidentitymapping \
@@ -82,7 +82,7 @@ $  eksctl create iamidentitymapping \
 
 **For security purposes, this mapping can be removed after the successful installation.**
 
-**Yoy can also use the AWS CLI commands and policies available in the Example folder to setup the EC2 Instance Profile and added as part of the EKS aws-auth config map.**
+*You can also use the AWS CLI commands and policies available in the Example folder to set up the EC2 Instance Profile and add as part of the EKS aws-auth ConfigMap.*
 
 **Softwares**
 
