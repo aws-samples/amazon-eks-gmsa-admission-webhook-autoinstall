@@ -1,6 +1,6 @@
 # Amazon EKS - gMSA Webhook Autoinstall
 
-As currently, Amazon EKS do not support "kubernetes.io/kubelet-serving" certificates for non-node objects. The gMSA [scripts](https://github.com/kubernetes-sigs/windows-gmsa/blob/master/admission-webhook/deploy/create-signed-cert.sh#L120_) for gMSA Webhook version 0.2.0 and 0.3.0 are not suitable for deploy in Amazon EKS.
+Currently, Amazon EKS does not support "kubernetes.io/kubelet-serving" certificates for non-node objects. The gMSA [scripts](https://github.com/kubernetes-sigs/windows-gmsa/blob/master/admission-webhook/deploy/create-signed-cert.sh#L120_) as a result, the gMSA Webhook version 0.2.0 and 0.3.0 are not compatible for deployment in Amazon EKS.
 
 Thinking on an alternative, we developed a workaround which has two major objectives:
 
