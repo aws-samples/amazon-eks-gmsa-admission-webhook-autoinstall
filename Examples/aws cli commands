@@ -1,0 +1,15 @@
+AWS CLI Commands:
+-- Creating the EC2 Instance Profile and adding the instance profile to the EKS aws-auth configmap 
+-- Policy files on Git Repository/Examples
+
+aws iam create-policy --policy-name eks-gmsawebhook-policy --policy-document file://"path/eks-gmsawebhook-policy.json"
+
+aws iam create-role --role-name eks-gmsawebhook-role --assume-role-policy-document file://"path/eks-gmsawebhook-trust-policy.json"
+
+aws iam attach-role-policy --policy-arn arn:aws:iam::ACCOUNT-ID:policy/eks-gmsawebhook-policy --role-name eks-gmsawebhook-role
+
+aws iam create-instance-profile --instance-profile-name eks-gmsawebhook-instance-profile
+
+aws iam add-role-to-instance-profile --role-name eks-gmsawebhook-role --instance-profile-name eks-gmsawebhook-instance-profile
+
+eksctl create iamidentitymapping --username admin --cluster CLUSTER-NAME --arn arn:aws:iam::ACCOUNT-ID:role/eks-gmsawebhook-role --group system:masters
