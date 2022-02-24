@@ -7,7 +7,7 @@ Thinking on an alternative, we developed a workaround which has two major object
 1. Install [certmanager-CA](https://github.com/cert-manager/signer-ca);
 2. Use it to sign the CSRs for gMSA instead of the default controller.
 
-## Worflow
+## Workflow
 
 This script is going to perform the following activities:
 
@@ -113,9 +113,9 @@ The following commands could be used to run the deploy script from an EC2 instan
 ```
 $ sudo -i 
 $ yum install -y git
-$ git clone https://github.com/flaviosakakibara/gMSA2x3x-EKS-Installation.git
-$ cd gMSA2x3x-EKS-Installation/
-$ bash installation.sh <account> <region> <cluster-name> my-private-signer.com/my-signer AL2
+$ git clone https://github.com/aws-samples/amazon-eks-gmsa-admission-webhook-autoinstall
+$ cd amazon-eks-gmsa-admission-webhook-autoinstall/
+$ bash installation.sh <account-id> <region-id> <eks-cluster-name> my-private-signer.com/my-signer AL2
 ```
 
 Kindly note that <my-private-signer.com/my-signer> is the parameter for the name of the signer to be used in the CSR and could be any value in the "domain.com/name" format.
