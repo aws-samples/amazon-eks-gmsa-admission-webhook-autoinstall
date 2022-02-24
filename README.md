@@ -82,7 +82,7 @@ $  eksctl create iamidentitymapping \
 
 **For security purposes, this mapping can be removed after the successful installation.**
 
-**Yoy can also use the AWS CLI commands and policies available in "AWS CLI Commands - Create Instance Profile" to setup these requirements.**
+**Yoy can also use the AWS CLI commands and policies available in the Example folder to setup the EC2 Instance Profile and added as part of the EKS aws-auth config map.**
 
 **Softwares**
 
