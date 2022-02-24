@@ -7,7 +7,7 @@ Thinking on an alternative, we developed a workaround which has two major object
 1. Install [certmanager-CA](https://github.com/cert-manager/signer-ca);
 2. Use it to sign the CSRs for gMSA instead of the default controller.
 
-## Workflow
+## Script workflow
 
 This script is going to perform the following activities:
 
@@ -18,9 +18,7 @@ This script is going to perform the following activities:
 5. Install the cert-manager [signer-ca](https://github.com/cert-manager/signer-ca) (master branch)
 6. Install gMSA [v0.3.0](https://github.com/kubernetes-sigs/windows-gmsa/releases/tag/v0.3.0)
 
-## Utilization
-
-### Prerequisites
+## Prerequisites
 
 **IAM**
 This script requires, at least, the following actions:
@@ -100,7 +98,7 @@ Additionally, Docker daemon should be running so that the script could successfu
 
 **If you are using Amazon Linux 2 as the OS of the EC2 instance you're executing the script, you have the option to inform the "AL2" parameter which would trigger the automatic installation/configuration of the host.**
 
-### Script utilization
+### Installing the gMSA admission-webhook 
 
 The main component of this script is the "installation.sh" file. It receives five positional arguments:
 
