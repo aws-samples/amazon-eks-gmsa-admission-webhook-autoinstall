@@ -80,7 +80,7 @@ $  eksctl create iamidentitymapping \
   --group system:masters
 ```
 
-For security purposes, this mapping can be removed after the successful installation.
+**For security purposes, this mapping can be removed after the successful installation.**
 
 **Softwares**
 
@@ -96,16 +96,16 @@ It's necessary that the following binaries are installed in the host that is run
 
 Additionally, Docker daemon should be running so that the script could successfully build the signer-ca image.
 
-If you are using Amazon Linux 2 as the OS of the host you're executing the script, you have the option to inform the "AL2" parameter which would trigger the automatic installation/configuration of the host.
+**If you are using Amazon Linux 2 as the OS of the EC2 instance you're executing the script, you have the option to inform the "AL2" parameter which would trigger the automatic installation/configuration of the host.**
 
 ### Script utilization
 
 The main component of this script is the "installation.sh" file. It receives five positional arguments:
 
-1. the account of the EKS cluster in which the installation is being performed.
-2. the region of the EKS cluster in which the installation is being performed.
-3. the name of the EKS cluster  in which the installation is being performed.
-4. the name of the signer to be deployed. This name will be used in the **signerName** property of the CertificateSigningRequests [object](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#certificatesigningrequestspec-v1-certificates-k8s-io).
+1. The account of the EKS cluster in which the installation is being performed.
+2. The region of the EKS cluster in which the installation is being performed.
+3. The name of the EKS cluster  in which the installation is being performed.
+4. The name of the signer to be deployed. This name will be used in the **signerName** property of the CertificateSigningRequests [object](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#certificatesigningrequestspec-v1-certificates-k8s-io).
 5. automatic software dependencies installation/configuration. By default, this value is set to "AL2" which enables the automatic feature. 
 
 The following commands could be used to run the deploy script from an EC2 instance:
