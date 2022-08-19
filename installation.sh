@@ -262,7 +262,7 @@ then
 fi
 
 #RUNNING THE INSTALLATION
-K8S_GMSA_DEPLOY_DOWNLOAD_REV='v0.4.0' ./deploy-gmsa-webhook.sh --file ./gmsa-manifests --image sigwindowstools/k8s-gmsa-webhook:v0.4.0 --overwrite
+./deploy-gmsa-webhook.sh --file ./gmsa-manifests --image sigwindowstools/k8s-gmsa-webhook:latest --overwrite
 #END OF gMSA INSTALLATION
 
 #END OF SCRIPT
