@@ -14,3 +14,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  
 - [hotfix/aws-cli-version]()
   Fix for [this](https://github.com/aws-samples/amazon-eks-gmsa-admission-webhook-autoinstall/issues/2) issue.
+  Changed to use the latest version of gmsa script.
