@@ -18,7 +18,7 @@ install_aws_cli() {
     echo "Installing AWS CLI"
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
     unzip awscliv2.zip
-    sudo ./aws/install
+    sudo ./aws/install --update
 }
 install_docker() {
     echo "Installing Docker"
@@ -69,12 +69,9 @@ install_realpath() {
 }
 
 #PERFORMING CHECKS
-AWS_CLI="aws --version"
-if  ! test_command $AWS_CLI;
-then
-    echo "AWS binary not installed. Installing it."
-    install_aws_cli
-fi
+#Installing latest aws cli version
+install_aws_cli
+
 DOCKER="docker version"
 if ! test_command $DOCKER;
 then
