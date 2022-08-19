@@ -162,7 +162,7 @@ fi
 #____________END OF CHECKS
 
 #CONFIGURING KUBECTL
-aws eks update-kubeconfig --name $CLUSTER --region $REGION
+/usr/local/bin/aws eks update-kubeconfig --name $CLUSTER --region $REGION
 
 #REMOVING PREVIOUS GMSA IF NEEDED
 if gmsa_already_installed;
@@ -180,11 +180,11 @@ ECR_URL=$ACCOUNT.dkr.ecr.$REGION.amazonaws.com
 REPOSITORY_NAME=certmanager-ca-controller
 DOCKER_PREFIX=$ECR_URL/certmanager-ca-
 
-REPOSITORY_EXISTS=$(aws ecr describe-images --repository-name $REPOSITORY_NAME --region $REGION)
+REPOSITORY_EXISTS=$(/usr/local/bin/aws ecr describe-images --repository-name $REPOSITORY_NAME --region $REGION)
 
 if [[ ! $REPOSITORY_EXISTS ]]
 then
-    REPOSITORY_CREATION=$(aws ecr create-repository --repository-name $REPOSITORY_NAME --region $REGION)
+    REPOSITORY_CREATION=$(/usr/local/bin/aws ecr create-repository --repository-name $REPOSITORY_NAME --region $REGION)
 else
     echo "Repository already created"
 fi
@@ -192,7 +192,7 @@ fi
 
 #____________INITIATING BUILD AND INSTALLATION OF CA
 echo "Starting CA installation"
-aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ECR_URL
+/usr/local/bin/aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ECR_URL
 
 if [[ -d "signer-ca" ]]
 then
