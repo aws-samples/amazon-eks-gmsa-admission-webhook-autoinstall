@@ -1,6 +1,6 @@
 # Amazon EKS - gMSA Webhook Autoinstall
 
-Currently, Amazon EKS does not support "kubernetes.io/kubelet-serving" certificates for non-node objects. As a result the gMSA [scripts](https://github.com/kubernetes-sigs/windows-gmsa/blob/master/admission-webhook/deploy/create-signed-cert.sh#L120_) for gMSA admission-webhook version 0.2.0 and 0.3.0 installation are not compatible for deployment in Amazon EKS.
+Currently, Amazon EKS does not support "kubernetes.io/kubelet-serving" certificates for non-node objects. As a result the gMSA [scripts](https://github.com/kubernetes-sigs/windows-gmsa/blob/master/admission-webhook/deploy/create-signed-cert.sh#L120_) for gMSA admission-webhook version 0.4.0 and 0.5.0 installation are not compatible for deployment in Amazon EKS.
 
 Thinking on an alternative, we developed a workaround which has two major objectives:
 
@@ -16,7 +16,7 @@ This script is going to perform the following activities:
 3. Uninstall (if any) previous installation of gMSA
 4. Uninstall (if any) previous installation of signer-ca
 5. Install the cert-manager [signer-ca](https://github.com/cert-manager/signer-ca) (master branch)
-6. Install gMSA [v0.3.0](https://github.com/kubernetes-sigs/windows-gmsa/releases/tag/v0.3.0)
+6. Install gMSA [v0.5.0](https://github.com/kubernetes-sigs/windows-gmsa/releases/tag/v0.5.0)
 
 ## Prerequisites
 
